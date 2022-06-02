@@ -2,6 +2,16 @@ const express = require('express');
 const app = express();
 const port=3000;
 
+const mongoose = require('mongoose') 
+
+const Productos = require('./models/producto')
+
+//conexión a base de datos mongodb
+mongoose.connect('mongodb://localhost/productos', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(()=> console.log('conectado a mongodb')) 
+  .catch(e => console.log('error de conexión', e))
+     
+
 const products = [
     {
         id: 1,
